@@ -1,3 +1,6 @@
+
+
+
 html, body {
     box-sizing: border-box;
     margin: 0;
@@ -180,4 +183,21 @@ div.contact {
 
 .smiley {
     font-family: 'Helvetica';
+}
+
+
+@media only screen  and (max-width: 428px) {
+
+    .jhed {
+        font-size: 90vh;
+        line-height: 90vh;
+    }
+    .cat {
+        height: 75px;
+    }
+    div.summary {
+        width: 100%;
+        font-size: 48px;
+        line-height: 1;
+    }
 }
