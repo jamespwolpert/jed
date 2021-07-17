@@ -117,79 +117,88 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"index.js":[function(require,module,exports) {
+var contact = document.querySelector('.contact');
+var track = document.querySelector('.track');
+var exclaims = document.querySelectorAll('.exclaim');
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
+function skew(e) {
+  if (!track.classList.contains('skewed')) {
+    track.classList.add('skewed'); // exclaims.forEach((i)=> {
+    //     i.style.display = 'block';
+    // });
+  } else {
+    track.classList.remove('skewed'); // exclaims.forEach((i)=> {
+    //     i.style.display = 'none';
+    // });
   }
-
-  return bundleURL;
 }
 
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+contact.addEventListener('mouseenter', skew);
+contact.addEventListener('mouseleave', skew);
+var timeline = new TimelineMax({
+  repeat: -1,
+  yoyo: true
+}),
+    feTurb = document.querySelector('#feturbulence');
+timeline.add(TweenMax.to(feTurb, 20, {
+  onUpdate: function onUpdate() {
+    var bfX = this.progress() * 0.005 + 0.005,
+        //base frequency x
+    bfY = this.progress() * 0.005 + 0.005; //base frequency y
 
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
+    feTurb.setAttribute('baseFrequency', "".concat(bfX, " ").concat(bfY));
   }
+}), 0); // Load random cat images. heh.
 
-  return '/';
+var catHouse = document.querySelector('.quotes');
+var cats = ['a.png', 'b.png', 'c.png', 'd.png', 'e.png'];
+
+function showCat(targetCat, catPosX, catPosY) {
+  var img = document.createElement('img');
+  img.className = 'cat';
+  img.src = "/bitmap/".concat(cats[targetCat]);
+  img.style.left = "".concat(catPosX, "px");
+  img.style.top = "".concat(catPosY, "px");
+  catHouse.appendChild(img);
+  setTimeout(function () {
+    catHouse.removeChild(img);
+  }, 6600);
 }
 
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
+function selectCat() {
+  var targetCat = Math.floor(Math.random() * cats.length);
+  var catPosX = Math.floor(Math.random() * window.innerWidth);
+  var catPosY = Math.floor(Math.random() * window.innerHeight);
+  showCat(targetCat, catPosX, catPosY);
 }
 
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../../../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
+setInterval(function () {
+  selectCat();
+}, 1000);
+var quotes = ["I can't be <span class='expletive'>fucked</span> with it, honestly", "Your old sound was quite <span class='expletive'>shite</span>, mate.", "Stop reachin' over the bar ya <span class='expletive'>cunt</span>", "<span class='expletive'>Must</span> you play guitar while I'm micing the kit?", "Eh, the room's fine -- grow some <span class='expletive'>ears<span>, man", "Yeah, this band is pretty <span class='expletive'>rockin!</span>"];
 
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
+function showQuote(targetQuote, quotePosX, quotePosY) {
+  var div = document.createElement('div');
+  div.className = 'quote';
+  div.innerHTML = quotes[targetQuote];
+  div.style.left = "".concat(quotePosX, "px");
+  div.style.top = "".concat(quotePosY, "px");
+  catHouse.appendChild(div);
+  setTimeout(function () {
+    catHouse.removeChild(div);
+  }, 6600);
 }
 
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"../../../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"style.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+function selectQuote() {
+  var targetQuote = Math.floor(Math.random() * quotes.length);
+  var quotePosX = Math.floor(Math.random() * window.innerWidth);
+  var quotePosY = Math.floor(Math.random() * window.innerHeight);
+  showQuote(targetQuote, quotePosX, quotePosY);
+} // setInterval(()=> {
+//     selectQuote();
+// }, 3000)
+},{}],"../../../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -393,5 +402,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/style.97fcb138.js.map
+},{}]},{},["../../../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
+//# sourceMappingURL=/Jed.e31bb0bc.js.map
