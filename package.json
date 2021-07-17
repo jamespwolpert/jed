@@ -5,6 +5,8 @@
   "repository": "https://github.com/jamespwolpert/jed.git",
   "license": "MIT",
   "devDependencies": {
+    "cssnano": "^5.0.6",
+    "postcss": "^8.3.5",
     "sass": "^1.35.2"
   },
   "dependencies": {
