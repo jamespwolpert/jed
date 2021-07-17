@@ -1,5 +1,5 @@
 {
-  "name": "Test Site",
+  "name": "jed",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/jamespwolpert/jed.git",
@@ -11,8 +11,5 @@
     "cssnano": "^5.0.6",
     "postcss": "^8.3.5",
     "sass": "^1.35.2"
-  },
-  "dependencies": {
-    "prysm": "^0.1.16"
   }
 }
