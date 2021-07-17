@@ -1,0 +1,75 @@
+const $f7cc2df98f0dd786ece54ee206a6d458$var$contact = document.querySelector('.contact');
+const $f7cc2df98f0dd786ece54ee206a6d458$var$track = document.querySelector('.track');
+const $f7cc2df98f0dd786ece54ee206a6d458$var$exclaims = document.querySelectorAll('.exclaim');
+function $f7cc2df98f0dd786ece54ee206a6d458$var$skew(e) {
+    if (!$f7cc2df98f0dd786ece54ee206a6d458$var$track.classList.contains('skewed')) $f7cc2df98f0dd786ece54ee206a6d458$var$track.classList.add('skewed');
+    else $f7cc2df98f0dd786ece54ee206a6d458$var$track.classList.remove('skewed');
+}
+$f7cc2df98f0dd786ece54ee206a6d458$var$contact.addEventListener('mouseenter', $f7cc2df98f0dd786ece54ee206a6d458$var$skew);
+$f7cc2df98f0dd786ece54ee206a6d458$var$contact.addEventListener('mouseleave', $f7cc2df98f0dd786ece54ee206a6d458$var$skew);
+let $f7cc2df98f0dd786ece54ee206a6d458$var$timeline = new TimelineMax({
+    repeat: -1,
+    yoyo: true
+}), $f7cc2df98f0dd786ece54ee206a6d458$var$feTurb = document.querySelector('#feturbulence');
+$f7cc2df98f0dd786ece54ee206a6d458$var$timeline.add(TweenMax.to($f7cc2df98f0dd786ece54ee206a6d458$var$feTurb, 20, {
+    onUpdate: function() {
+        let bfX = this.progress() * 0.005 + 0.005, bfY = this.progress() * 0.005 + 0.005; //base frequency y
+        $f7cc2df98f0dd786ece54ee206a6d458$var$feTurb.setAttribute('baseFrequency', `${bfX} ${bfY}`);
+    }
+}), 0);
+// Load random cat images. heh.
+const $f7cc2df98f0dd786ece54ee206a6d458$var$catHouse = document.querySelector('.quotes');
+const $f7cc2df98f0dd786ece54ee206a6d458$var$cats = [
+    'a.png',
+    'b.png',
+    'c.png',
+    'd.png',
+    'e.png'
+];
+function $f7cc2df98f0dd786ece54ee206a6d458$var$showCat(targetCat, catPosX, catPosY) {
+    let img = document.createElement('img');
+    img.className = 'cat';
+    img.src = `/bitmap/${$f7cc2df98f0dd786ece54ee206a6d458$var$cats[targetCat]}`;
+    img.style.left = `${catPosX}px`;
+    img.style.top = `${catPosY}px`;
+    $f7cc2df98f0dd786ece54ee206a6d458$var$catHouse.appendChild(img);
+    setTimeout(()=>{
+        $f7cc2df98f0dd786ece54ee206a6d458$var$catHouse.removeChild(img);
+    }, 6600);
+}
+function $f7cc2df98f0dd786ece54ee206a6d458$var$selectCat() {
+    let targetCat = Math.floor(Math.random() * $f7cc2df98f0dd786ece54ee206a6d458$var$cats.length);
+    let catPosX = Math.floor(Math.random() * window.innerWidth);
+    let catPosY = Math.floor(Math.random() * window.innerHeight);
+    $f7cc2df98f0dd786ece54ee206a6d458$var$showCat(targetCat, catPosX, catPosY);
+}
+setInterval(()=>{
+    $f7cc2df98f0dd786ece54ee206a6d458$var$selectCat();
+}, 1000);
+const $f7cc2df98f0dd786ece54ee206a6d458$var$quotes = [
+    "I can't be <span class='expletive'>fucked</span> with it, honestly",
+    "Your old sound was quite <span class='expletive'>shite</span>, mate.",
+    "Stop reachin' over the bar ya <span class='expletive'>cunt</span>",
+    "<span class='expletive'>Must</span> you play guitar while I'm micing the kit?",
+    "Eh, the room's fine -- grow some <span class='expletive'>ears<span>, man",
+    "Yeah, this band is pretty <span class='expletive'>rockin!</span>"
+];
+function $f7cc2df98f0dd786ece54ee206a6d458$var$showQuote(targetQuote, quotePosX, quotePosY) {
+    let div = document.createElement('div');
+    div.className = 'quote';
+    div.innerHTML = $f7cc2df98f0dd786ece54ee206a6d458$var$quotes[targetQuote];
+    div.style.left = `${quotePosX}px`;
+    div.style.top = `${quotePosY}px`;
+    $f7cc2df98f0dd786ece54ee206a6d458$var$catHouse.appendChild(div);
+    setTimeout(()=>{
+        $f7cc2df98f0dd786ece54ee206a6d458$var$catHouse.removeChild(div);
+    }, 6600);
+}
+function $f7cc2df98f0dd786ece54ee206a6d458$var$selectQuote() {
+    let targetQuote = Math.floor(Math.random() * $f7cc2df98f0dd786ece54ee206a6d458$var$quotes.length);
+    let quotePosX = Math.floor(Math.random() * window.innerWidth);
+    let quotePosY = Math.floor(Math.random() * window.innerHeight);
+    $f7cc2df98f0dd786ece54ee206a6d458$var$showQuote(targetQuote, quotePosX, quotePosY);
+} // setInterval(()=> {
+ //     selectQuote();
+ // }, 3000)
