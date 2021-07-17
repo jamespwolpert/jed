@@ -1,0 +1,13 @@
+{
+  "name": "Test Site",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jamespwolpert/jed.git",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.35.2"
+  },
+  "dependencies": {
+    "prysm": "^0.1.16"
+  }
+}
