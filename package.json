@@ -4,6 +4,9 @@
   "main": "index.js",
   "repository": "https://github.com/jamespwolpert/jed.git",
   "license": "MIT",
+  "scripts": {
+    "build": "parcel build index.html"
+  },
   "devDependencies": {
     "cssnano": "^5.0.6",
     "postcss": "^8.3.5",
