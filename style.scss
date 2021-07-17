@@ -4,6 +4,13 @@ html, body {
     padding: 0;
 }
 
+//Helvetica
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url(/Helvetica.ttf);
+}
+
 
 // Animations! 
 
@@ -169,4 +176,8 @@ div.contact {
 .expletive {
     animation: rainbow 1.5s infinite steps(1);
     filter: url(#turbulence);
+}
+
+.smiley {
+    font-family: 'Helvetica';
 }
