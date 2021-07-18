@@ -120,6 +120,7 @@ div.summary {
   margin: 0;
   filter: url("#wavy");
   z-index: 13;
+  transform: translate3d(0, 0, 0);
 }
 
 div.quotes {
@@ -142,6 +143,7 @@ div.contact {
   font-style: italic;
   display: flex;
   flex-direction: column;
+  transform: translate3d(0, 0, 0);
   filter: url(#wavy);
 }
 div.contact a {

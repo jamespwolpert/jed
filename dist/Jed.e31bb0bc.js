@@ -208,9 +208,9 @@ function wave() {
 
   if (elapsed > fps) {
     if (!reverse) {
-      delta += 2;
+      delta += 1;
     } else {
-      delta -= 2;
+      delta -= 1;
     }
 
     waves.setAttribute('values', "".concat(delta));
@@ -249,7 +249,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62928" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50502" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
