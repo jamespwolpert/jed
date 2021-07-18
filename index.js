@@ -117,10 +117,10 @@ function wave() {
 
         if(!reverse) {
             
-            delta += 1;
+            delta += 2;
             
             } else {
-            delta -= 1;
+            delta -= 2;
             }
         
         waves.setAttribute('values', `${delta}` );
