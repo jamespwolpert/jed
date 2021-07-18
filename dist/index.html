@@ -2,40 +2,68 @@
     <head>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <link rel="stylesheet" href="https://use.typekit.net/nyf6uiv.css">
-        <link rel="stylesheet" href="/style.16f7f67f.css">
+        <link rel="stylesheet" href="/style.1ad1b413.css">
     </head>
 
     <body>
 
-        <svg class="noise-filter" xlmns="http://www.w3.org/2000/svg" version="1.1">
-            <filter id="turbulence" x="0" y="0" width="100%" height="100%">
-              <feTurbulence id="feturbulence" type="fractalNoise" numOctaves="2" seed="2"></feTurbulence>
-              <feDisplacementMap xChannelSelector="G" yChannelSelector="B" scale="30" in="SourceGraphic"></feDisplacementMap>
-            </filter>
+        <svg class="water-texture">
+            <filter id="wavy">
+              <feTurbulence baseFrequency="0.004"></feTurbulence>
+              <feColorMatrix type="hueRotate" values="0">
+                <animate attributeName="values" from="0" to="360" dur="4s" repeatCount="indefinite"></animate>
+               </feColorMatrix>
+               <feColorMatrix type="matrix" values="0 0 0 0 0
+                         0 0 0 0 0
+                         0 0 0 0 0
+                         1 0 0 0 0"></feColorMatrix>
+                <feDisplacementMap in="SourceGraphic" scale="20"></feDisplacementMap>
+              </filter>
+            <rect filter="url(#noise)" width="100" height="100"></rect>
           </svg>
+
+        <!-- <svg class='water-texture'>
+            <defs>
+            <filter id="wavy">
+
+                <feTurbulence id="waves" type="fractalNoise" baseFrequency="0.03" numOctaves="5"
+                result="turbulence_3" data-filterId="3" />
+            <feDisplacementMap xChannelSelector="R" yChannelSelector="G" in="SourceGraphic" in2="turbulence_3" scale="30" />
+            </filter>
+            </defs>
+        </svg> -->
+    
         
         <div class="content">
             <div class="track">
                 <div class="ticker">
-                    <div class="jhed">JHED <span class="exclaim">!</span><span class="smiley">&#9786;&#x263A;</span> </div>
-                    <div class="jhed">JHED <span class="exclaim">!</span> <span class="smiley">&#9786;&#x263A;</span> </div>
-                    <div class="jhed">JHED <span class="exclaim">!</span> <span class="smiley">&#9786;&#x263A;</span> </div>
-                    <div class="jhed">JHED <span class="exclaim">!</span> <span class="smiley">&#9786;&#x263A;</span> </div>
+                    <div class="jhed">JHED <span class="exclaim">!</span><span class="smiley">&#9786;</span> </div>
+                    <div class="jhed">JHED <span class="exclaim">!</span> <span class="smiley">&#9786;</span> </div>
+                    <div class="jhed">JHED <span class="exclaim">!</span> <span class="smiley">&#9786;</span> </div>
+                    <div class="jhed">JHED <span class="exclaim">!</span> <span class="smiley">&#9786;</span> </div>
                 </div>
             </div>
 
             <div class="quotes"></div>
-            <div class="summary">
+            <div class="summary text-shadow">
                 A super chill Scottsman who does live sound for bewildered Americans.
             </div>
 
-            <div class="contact">
+            <div class="contact text-shadow">
                 <a href="mailto:jhedisdead@icloud.com">Electronic Mail</a>
                 <a href="tel:717538-0464">Ye olde telephone</a>
             </div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
-        <script src="/Jed.9936ecfa.js"></script>
+        <script src="/Jed.19b362b5.js"></script>
     </body>
 
 </html>
+
+
+
+
+
+
+
+

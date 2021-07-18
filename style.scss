@@ -53,8 +53,36 @@ html, body {
     100% {
         color: red;
     }
+}
 
+@keyframes rainbowShadow {
+    0% {
+        text-shadow: 2px 2px greenyellow;
+    }
 
+    20% {
+        text-shadow: 2px 2px blue;
+    }
+
+    40% {
+        text-shadow: 2px 2px cyan;
+    }
+
+    60% {
+        text-shadow: 2px 2px yellow;
+    }
+
+    80% {
+        text-shadow: 2px 2px magenta;
+    }
+
+    100% {
+        text-shadow: 2px 2px red;
+    }
+}
+
+.text-shadow {
+    animation: rainbowShadow 4s alternate infinite;
 }
 
 .exclaim {
@@ -91,6 +119,7 @@ div.ticker {
 
     div.jhed {
         display:flex;
+        align-items: center;
         font-size:100vh;
         line-height:100vh;
         margin: 0;
@@ -113,7 +142,7 @@ div.summary{
     top: 0;
     left: 0; 
     margin: 0;
-    filter: url('#turbulence');
+    filter: url('#wavy');
     z-index: 13;
 
 }
@@ -139,7 +168,7 @@ div.contact {
     display:flex;
     flex-direction: column;
     
-    filter: url(#turbulence);
+    filter: url(#wavy);
 
     a {
         color: white;
@@ -176,11 +205,6 @@ div.contact {
     width: 20vw;
 }
 
-.expletive {
-    animation: rainbow 1.5s infinite steps(1);
-    filter: url(#turbulence);
-}
-
 .smiley {
     font-family: 'Helvetica';
 }
@@ -201,3 +225,8 @@ div.contact {
         line-height: 1;
     }
 }
+
+.water-texture {
+    height: 0;
+}
+

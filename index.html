@@ -7,29 +7,58 @@
 
     <body>
 
-        <svg class="noise-filter" xlmns="http://www.w3.org/2000/svg" version="1.1">
-            <filter id="turbulence" x="0" y="0" width="100%" height="100%">
-              <feTurbulence id="feturbulence" type="fractalNoise" numOctaves="2" seed="2"></feTurbulence>
-              <feDisplacementMap xChannelSelector="G" yChannelSelector="B" scale="30" in="SourceGraphic"></feDisplacementMap>
-            </filter>
+        <svg class='water-texture'>
+            <filter id="wavy">
+              <feTurbulence baseFrequency="0.004"/>
+              <feColorMatrix type="hueRotate" values="0">
+                <animate
+                  attributeName="values"
+                  from="0"
+                  to="360"
+                  dur="4s" 
+                  repeatCount="indefinite"
+                 />
+               </feColorMatrix>
+               <feColorMatrix 
+                 type="matrix" 
+                 values="0 0 0 0 0
+                         0 0 0 0 0
+                         0 0 0 0 0
+                         1 0 0 0 0"
+                />
+                <feDisplacementMap in="SourceGraphic" scale="20"/>
+              </filter>
+            <rect filter="url(#noise)" width="100" height="100"/>
           </svg>
+
+        <!-- <svg class='water-texture'>
+            <defs>
+            <filter id="wavy">
+
+                <feTurbulence id="waves" type="fractalNoise" baseFrequency="0.03" numOctaves="5"
+                result="turbulence_3" data-filterId="3" />
+            <feDisplacementMap xChannelSelector="R" yChannelSelector="G" in="SourceGraphic" in2="turbulence_3" scale="30" />
+            </filter>
+            </defs>
+        </svg> -->
+    
         
         <div class="content">
             <div class="track">
                 <div class="ticker">
-                    <div class="jhed">JHED <span class="exclaim">!</span><span class="smiley">&#9786;&#x263A;</span> </div>
-                    <div class="jhed">JHED <span class="exclaim">!</span> <span class="smiley">&#9786;&#x263A;</span> </div>
-                    <div class="jhed">JHED <span class="exclaim">!</span> <span class="smiley">&#9786;&#x263A;</span> </div>
-                    <div class="jhed">JHED <span class="exclaim">!</span> <span class="smiley">&#9786;&#x263A;</span> </div>
+                    <div class="jhed">JHED <span class="exclaim">!</span><span class="smiley">&#9786;</span> </div>
+                    <div class="jhed">JHED <span class="exclaim">!</span> <span class="smiley">&#9786;</span> </div>
+                    <div class="jhed">JHED <span class="exclaim">!</span> <span class="smiley">&#9786;</span> </div>
+                    <div class="jhed">JHED <span class="exclaim">!</span> <span class="smiley">&#9786;</span> </div>
                 </div>
             </div>
 
             <div class="quotes"></div>
-            <div class="summary">
+            <div class="summary text-shadow">
                 A super chill Scottsman who does live sound for bewildered Americans.
             </div>
 
-            <div class="contact">
+            <div class="contact text-shadow">
                 <a href="mailto:jhedisdead@icloud.com">Electronic Mail</a>
                 <a href="tel:717538-0464">Ye olde telephone</a>
             </div>
@@ -39,3 +68,11 @@
     </body>
 
 </html>
+
+
+
+
+
+
+
+

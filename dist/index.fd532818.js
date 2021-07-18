@@ -390,16 +390,20 @@ function skew(e) {
 }
 contact.addEventListener('mouseenter', skew);
 contact.addEventListener('mouseleave', skew);
-let timeline = new TimelineMax({
-    repeat: -1,
-    yoyo: true
-}), feTurb = document.querySelector('#feturbulence');
-timeline.add(TweenMax.to(feTurb, 20, {
-    onUpdate: function() {
-        let bfX = this.progress() * 0.005 + 0.005, bfY = this.progress() * 0.005 + 0.005; //base frequency y
-        feTurb.setAttribute('baseFrequency', `${bfX} ${bfY}`);
-    }
-}), 0);
+// let timeline = new TimelineMax({
+//     repeat: -1,
+//     yoyo: true
+//   }),
+//   feTurb = document.querySelector('#feturbulence');
+// timeline.add(
+//   TweenMax.to(feTurb, 20, {
+//     onUpdate: function() {
+//       let bfX = this.progress() * 0.005 + 0.005, //base frequency x
+//         bfY = this.progress() * 0.005 + 0.005; //base frequency y
+//       feTurb.setAttribute('baseFrequency', `${bfX} ${bfY}`);
+//     }
+//   }), 0
+// );
 // Load random cat images. heh.
 const catHouse = document.querySelector('.quotes');
 const cats = [
@@ -456,6 +460,27 @@ function selectQuote() {
 } // setInterval(()=> {
  //     selectQuote();
  // }, 3000)
+ // let delta = 0.001; 
+ // let reverse = false;
+ // const waves = document.querySelector('#waves');
+ // var raf = window.mozRequestAnimationFrame    ||
+ //           window.webkitRequestAnimationFrame ||
+ //           window.msRequestAnimationFrame     ||
+ //           window.oRequestAnimationFrame;
+ // function wave() {
+ //     if(!reverse) {
+ //      delta += 0.00001;
+ //     } else {
+ //        delta -= 0.00001;
+ //     }
+ //     let test = waves.setAttribute('baseFrequency', `${delta} ${delta}` );
+ // console.log(waves.getAttribute('baseFrequency'));
+ // window.requestAnimationFrame(wave);
+ // }
+ // wave();
+ // setInterval(()=>{
+ //     reverse = !reverse;
+ // }, 15000);
 
 },{}]},["oOezg","4ee1I"], "4ee1I", "parcelRequire9cf8")
 
