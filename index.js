@@ -121,12 +121,9 @@ function wave() {
             
             } else {
             delta -= 2;
-            }
-        
+            } 
         waves.setAttribute('values', `${delta}` );
-
     }
-
 }
 initWave();
 
